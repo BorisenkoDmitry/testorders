@@ -1,0 +1,8 @@
+/* Presence keeps both overlay and content mounted until the exit completes. */
+[data-slot="dialog-overlay"], [data-slot="dialog-content"] {
+  animation-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
+  animation-duration: 200ms;
+}
+[data-slot="dialog-overlay"][data-state="closed"], [data-slot="dialog-content"][data-state="closed"] {
+  animation-duration: 130ms;
+}

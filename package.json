@@ -1,0 +1,21 @@
+{
+  "name": "orders-aggregator",
+  "version": "2.3.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "up": "node scripts/up.mjs",
+    "down": "docker compose down",
+    "webhooks": "docker compose run --rm orders-api webhooks --target http://api:3000/webhooks/order",
+    "install:all": "npm --prefix backend ci && npm --prefix frontend ci",
+    "dev:backend": "npm --prefix backend run dev",
+    "dev:frontend": "npm --prefix frontend run dev",
+    "test": "npm --prefix backend test",
+    "test:docker": "docker compose --profile test run --build --rm tests",
+    "typecheck": "npm --prefix backend run typecheck && npm --prefix frontend run typecheck",
+    "build": "npm --prefix backend run build && npm --prefix frontend run build"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}
